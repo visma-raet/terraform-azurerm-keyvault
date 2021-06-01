@@ -46,6 +46,19 @@ variable "soft_delete_retention_days" {
   default     = 7
 }
 
+
+variable "purge_protection_enabled" {
+  description = "(Optional) Is Purge Protection enabled for this Key Vault?."
+  type        = bool
+  default     = false
+}
+
+variable "prefix" {
+  description = "The prefix for the resources created in the specified Azure Resource Group"
+  type        = string
+  default     = "default"
+}
+
 variable "access_policies" {
   description = "Map of access policies for an object_id (user, service principal, security group) to backend."
   type = list(object({
@@ -67,6 +80,30 @@ variable "network_acls" {
     virtual_network_subnet_ids = list(string),
   })
   default = null
+}
+
+variable "logging_enabled" {
+  description = "Manages a Diagnostic Setting for the Key Vault"
+  type        = bool
+  default     = false
+}
+
+variable "log_analytics_workspace_name" {
+  description = "(Optional) The name of the Analytics workspace"
+  type        = string
+  default     = null
+}
+
+variable "log_analytics_workspace_sku" {
+  description = "The SKU (pricing level) of the Log Analytics workspace. For new subscriptions the SKU should be set to PerGB2018"
+  type        = string
+  default     = "PerGB2018"
+}
+
+variable "log_retention_in_days" {
+  description = "The retention period for the logs in days. The expected value should be between 30 to 730"
+  type        = number
+  default     = 30
 }
 
 variable "tags" {
