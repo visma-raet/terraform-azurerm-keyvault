@@ -36,7 +36,7 @@ resource "random_string" "unique" {
 
 #tfsec:ignore:AZU020
 resource "azurerm_key_vault" "main" {
-  name                = format("kv%s%s", lower(replace(var.name, "/[[:^alnum:]]/", "")), random_string.unique.result)
+  name                = format("kv%s%s", lower(replace(var.name, "/[[:^alpha:]]/", "")), random_string.unique.result)
   resource_group_name = local.resource_group_name
   location            = local.location
   tenant_id           = data.azurerm_client_config.current.tenant_id
