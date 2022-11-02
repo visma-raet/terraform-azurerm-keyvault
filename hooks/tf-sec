@@ -10,4 +10,4 @@ if [ "${DEBUG}" != unset ]; then
 	set -x
 fi
 
-tfsec --concise-output --force-all-dirs --ignore-warnings
+tfsec --concise-output --force-all-dirs
