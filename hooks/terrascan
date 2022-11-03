@@ -10,4 +10,4 @@ if [ "${DEBUG}" != unset ]; then
 	set -x
 fi
 
-terrascan scan
+terrascan scan -t azure -i terraform

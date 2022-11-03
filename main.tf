@@ -17,7 +17,7 @@ data "azurerm_resource_group" "rgrp" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  #ts:skip=accurics.azure.NS.272 RSG lock should be skipped for now.
+  #ts:skip=AC_AZURE_0389 RSG lock should be skipped for now.
   count    = var.create_resource_group ? 1 : 0
   name     = lower(var.resource_group_name)
   location = var.location
@@ -46,6 +46,7 @@ resource "azurerm_key_vault" "main" {
   enabled_for_disk_encryption     = var.enabled_for_disk_encryption
   enabled_for_template_deployment = var.enabled_for_template_deployment
   soft_delete_retention_days      = var.soft_delete_retention_days
+  #tfsec:ignore:azure-keyvault-no-purge
   purge_protection_enabled        = var.purge_protection_enabled
 
   dynamic "network_acls" {
