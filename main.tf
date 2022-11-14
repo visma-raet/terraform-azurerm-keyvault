@@ -29,7 +29,7 @@ resource "azurerm_resource_group" "rg" {
 # Key-vault Creation or selection
 #---------------------------------------------------------
 resource "random_string" "unique" {
-  length  = 10
+  length  = 5
   special = false
   upper   = false
 }
