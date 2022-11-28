@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v2.5.0
 
     - name: Get current tag
       id: currenttag
@@ -22,7 +22,7 @@ jobs:
 
     - name: Create Release
       id: create_release
-      uses: ncipollo/release-action@v1
+      uses: ncipollo/release-action@v1.11.2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: ${{ steps.currenttag.outputs.tag }}
