@@ -113,20 +113,3 @@ resource "azurerm_monitor_diagnostic_setting" "main" {
     }
   }
 }
-
-provider "azurerm" {
-  features {
-    log_analytics_workspace {
-      permanently_delete_on_destroy = true
-    }
-    resource_group {
-      prevent_deletion_if_contains_resources = true
-    }
-    key_vault {
-      purge_soft_delete_on_destroy               = true
-      purge_soft_deleted_secrets_on_destroy      = true
-      purge_soft_deleted_certificates_on_destroy = true
-    }
-  }
-  skip_provider_registration = true
-}
